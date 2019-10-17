@@ -1,0 +1,5 @@
+some terminology
+	- service provider - the webservice itself
+	- format exchange - xml, json, text, html and so on
+	- xsd - xml schema definition (the format of the document itself, its structure)
+	- jaxb - java xml binding
