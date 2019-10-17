@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GetCourseDetainsResponse xmlxmlns="http://soapwebservices.com/courses">
-	<CourseDetails>
+<getCourseDetailsResponse xmlxmlns="http://soapwebservices.com/courses"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://soapwebservices.com/courses courseDetails.xsd">
+	<courseDetails>
 		<id>123</id>
 		<name>Soap Web services</name>
 		<description>Learning how to create SOAP web services</description>	
-	</CourseDetails>
-</GetCourseDetainsResponse>
+	</courseDetails>
+</getCourseDetailsResponse>
