@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs ="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://soapwebservices.com/courses" 
+xmlns:tns="http://soapwebservices.com/courses" 
+elementFormDefault="qualified">
+
+	<xs:element name="getCourseDetailsRequest">
+		
+        <xs:complexType>
+			<xs:sequence>
+				<xs:element name="id" type="xs:int"/>
+			</xs:sequence>
+		</xs:complexType>
+    </xs:element>
+	
+	<xs:element name="getCourseDetailsResponse">
+			
+        <xs:complexType>
+			<xs:sequence>
+				<xs:element name="courseDetails" type="tns:courseDetails"/>
+			</xs:sequence>
+		</xs:complexType>
+    </xs:element>
+	
+	<!-- a complex type that has a name that i could use just as a reference as shown above on the use of tns:courseDetails -->
+	<!-- by doing that i can create many complex types and simply call them when needed -->
+	<xs:complexType name="courseDetails">
+		<xs:sequence>
+			<xs:element name="id" type="xs:int"/>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="description" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+
+</xs:schema>

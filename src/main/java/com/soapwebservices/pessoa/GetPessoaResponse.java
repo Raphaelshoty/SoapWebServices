@@ -1,0 +1,71 @@
+//
+// Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.7 
+// Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
+// Gerado em: 2019.10.17 às 09:10:55 PM BRT 
+//
+
+
+package com.soapwebservices.pessoa;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+
+/**
+ * <p>Classe Java de anonymous complex type.
+ * 
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * 
+ * <pre>
+ * &lt;complexType>
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="pessoaDetails" type="{http://soapwebservices.com/pessoa}cPessoaDetails"/>
+ *       &lt;/sequence>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
+ * </pre>
+ * 
+ * 
+ */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "", propOrder = {
+    "pessoaDetails"
+})
+@XmlRootElement(name = "getPessoaResponse")
+public class GetPessoaResponse {
+
+    @XmlElement(required = true)
+    protected CPessoaDetails pessoaDetails;
+
+    /**
+     * Obtém o valor da propriedade pessoaDetails.
+     * 
+     * @return
+     *     possible object is
+     *     {@link CPessoaDetails }
+     *     
+     */
+    public CPessoaDetails getPessoaDetails() {
+        return pessoaDetails;
+    }
+
+    /**
+     * Define o valor da propriedade pessoaDetails.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link CPessoaDetails }
+     *     
+     */
+    public void setPessoaDetails(CPessoaDetails value) {
+        this.pessoaDetails = value;
+    }
+
+}
