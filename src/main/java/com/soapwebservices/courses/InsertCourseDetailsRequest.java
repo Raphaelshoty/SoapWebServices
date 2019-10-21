@@ -2,11 +2,11 @@
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.7 
 // Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2019.10.17 às 09:10:55 PM BRT 
+// Gerado em: 2019.10.21 às 07:30:23 PM BRT 
 //
 
 
-package com.soapwebservices.pessoa;
+package com.soapwebservices.courses;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="pessoaDetails" type="{http://soapwebservices.com/pessoa}cPessoaDetails"/>
+ *         &lt;element name="courseDetails" type="{http://soapwebservices.com/courses}courseDetails"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -36,36 +36,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "pessoaDetails"
+    "courseDetails"
 })
-@XmlRootElement(name = "getPessoaResponse")
-public class GetPessoaResponse {
+@XmlRootElement(name = "insertCourseDetailsRequest")
+public class InsertCourseDetailsRequest {
 
     @XmlElement(required = true)
-    protected CPessoaDetails pessoaDetails;
+    protected CourseDetails courseDetails;
 
     /**
-     * Obtém o valor da propriedade pessoaDetails.
+     * Obtém o valor da propriedade courseDetails.
      * 
      * @return
      *     possible object is
-     *     {@link CPessoaDetails }
+     *     {@link CourseDetails }
      *     
      */
-    public CPessoaDetails getPessoaDetails() {
-        return pessoaDetails;
+    public CourseDetails getCourseDetails() {
+        return courseDetails;
     }
 
     /**
-     * Define o valor da propriedade pessoaDetails.
+     * Define o valor da propriedade courseDetails.
      * 
      * @param value
      *     allowed object is
-     *     {@link CPessoaDetails }
+     *     {@link CourseDetails }
      *     
      */
-    public void setPessoaDetails(CPessoaDetails value) {
-        this.pessoaDetails = value;
+    public void setCourseDetails(CourseDetails value) {
+        this.courseDetails = value;
     }
 
 }
