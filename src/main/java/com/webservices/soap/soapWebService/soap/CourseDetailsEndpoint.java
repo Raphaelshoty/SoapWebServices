@@ -17,6 +17,8 @@ import com.soapwebservices.courses.GetAllCourseDetailsRequest;
 import com.soapwebservices.courses.GetAllCourseDetailsResponse;
 import com.soapwebservices.courses.GetCourseDetailsRequest;
 import com.soapwebservices.courses.GetCourseDetailsResponse;
+import com.soapwebservices.courses.InsertCourseDetailsRequest;
+import com.soapwebservices.courses.InsertCourseDetailsResponse;
 import com.webservices.soap.soapWebService.soap.bean.Course;
 import com.webservices.soap.soapWebService.soap.service.CourseDetailsService;
 import com.webservices.soap.soapWebService.soap.service.CourseDetailsService.Status;
@@ -103,14 +105,15 @@ public class CourseDetailsEndpoint {
 		return com.soapwebservices.courses.Status.SUCCESS;
 	}
 	
-//	@PayloadRoot(namespace = "http://soapwebservices.com/courses",localPart = "insertCourseDetailsRequest")
-//	@ResponsePayload
-//	public InsertCourseDetailsResponse processInsertCourseRequest(@RequestPayload InsertCourseDetailsRequest request) { // the requestpayload is what i´m sending to the method
-//		
-//		
-//			
-//		
-//	}
-//	
+	@PayloadRoot(namespace = "http://soapwebservices.com/courses",localPart = "insertCourseDetailsRequest")
+	@ResponsePayload
+	public InsertCourseDetailsResponse processInsertCourseRequest(@RequestPayload InsertCourseDetailsRequest request) { // the requestpayload is what i´m sending to the method
+		InsertCourseDetailsResponse resp = new InsertCourseDetailsResponse();
+		
+		Course course = new Course(request.getCourseDetails().getName(), request.getCourseDetails().getDescription());
+		resp.setStatus(service.insertCourse(course));
+		return resp;		
+	}
+	
 
 }
