@@ -2,6 +2,7 @@ package com.webservices.soap.soapWebService.soap;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
@@ -16,10 +17,9 @@ import com.soapwebservices.courses.GetAllCourseDetailsRequest;
 import com.soapwebservices.courses.GetAllCourseDetailsResponse;
 import com.soapwebservices.courses.GetCourseDetailsRequest;
 import com.soapwebservices.courses.GetCourseDetailsResponse;
-import com.soapwebservices.courses.InsertCourseDetailsRequest;
-import com.soapwebservices.courses.InsertCourseDetailsResponse;
 import com.webservices.soap.soapWebService.soap.bean.Course;
 import com.webservices.soap.soapWebService.soap.service.CourseDetailsService;
+import com.webservices.soap.soapWebService.soap.service.CourseDetailsService.Status;
 
 @Endpoint // annotation to expose this class as an endpoint and accept calls to be processed
 public class CourseDetailsEndpoint {
@@ -40,6 +40,10 @@ public class CourseDetailsEndpoint {
 	@ResponsePayload
 	public GetCourseDetailsResponse processCourseRequest(@RequestPayload GetCourseDetailsRequest request) { // the requestpayload is what i´m sending to the method
 		Course course = service.findbyid(request.getId());
+		
+		if(Objects.isNull(course)) {
+			throw new CourseNotFoundException("invalid course ID "+request.getId());
+		}
 		
 		return mapCourse(course);
 	}
@@ -85,11 +89,18 @@ public class CourseDetailsEndpoint {
 	@PayloadRoot(namespace = "http://soapwebservices.com/courses",localPart = "deleteCourseDetailsRequest")
 	@ResponsePayload
 	public DeleteCourseDetailsResponse processDeleteCourseRequest(@RequestPayload DeleteCourseDetailsRequest request) { // the requestpayload is what i´m sending to the method
-		int status = service.deleteById(request.getId());
+		Status status = service.deleteById(request.getId());
 		
 		DeleteCourseDetailsResponse resp = new DeleteCourseDetailsResponse();
-		resp.setStatus(status);
+		resp.setStatus(mapStatus(status));
 		return resp;
+	}
+
+	private com.soapwebservices.courses.Status mapStatus(Status status) {
+		if(status == Status.FAILURE) {
+			return com.soapwebservices.courses.Status.FAILURE;
+		}
+		return com.soapwebservices.courses.Status.SUCCESS;
 	}
 	
 //	@PayloadRoot(namespace = "http://soapwebservices.com/courses",localPart = "insertCourseDetailsRequest")

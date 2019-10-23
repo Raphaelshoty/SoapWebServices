@@ -1,12 +1,21 @@
 package com.webservices.soap.soapWebService.soap;
 
+import java.util.Collections;
+import java.util.List;
+
+import javax.security.auth.callback.CallbackHandler;
+
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.ws.config.annotation.EnableWs;
+import org.springframework.ws.config.annotation.WsConfigurerAdapter;
+import org.springframework.ws.server.EndpointInterceptor;
+
+import org.springframework.ws.soap.security.xwss.XwsSecurityInterceptor;
+import org.springframework.ws.soap.security.xwss.callback.SimplePasswordValidationCallbackHandler;
 import org.springframework.ws.transport.http.MessageDispatcherServlet;
 import org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition;
 import org.springframework.xml.xsd.SimpleXsdSchema;
@@ -16,7 +25,7 @@ import org.springframework.xml.xsd.XsdSchema;
 @EnableWs // enable webservices on the project
 //inform that this class is a spring configuration file
 @Configuration
-public class CourseSoapWebserviceConfiguration {
+public class CourseSoapWebserviceConfiguration extends WsConfigurerAdapter {
 
 	// MessageDisptcherServlet
 	// ApplicationContext
@@ -54,6 +63,31 @@ public class CourseSoapWebserviceConfiguration {
 	@Bean
 	public XsdSchema coursesSchema() {
 		return new SimpleXsdSchema(new ClassPathResource("courseDetails.xsd"));
+	}
+	
+	//xwsSecurityInterceptor
+	@Bean
+	public XwsSecurityInterceptor securityInterceptor() {
+		XwsSecurityInterceptor interceptor = new XwsSecurityInterceptor();
+		//callback handler -> SimplePasswordValidationCallbackHandler
+		interceptor.setCallbackHandler(callbackHandler());
+		//security policy -> securityPolicy.xml
+		interceptor.setPolicyConfiguration(new ClassPathResource("securityPolicy.xml"));
+		return interceptor;
+	}
+	
+	
+	@Bean	
+	public SimplePasswordValidationCallbackHandler callbackHandler() {
+		SimplePasswordValidationCallbackHandler handler = new SimplePasswordValidationCallbackHandler();
+		handler.setUsersMap(Collections.singletonMap("user", "password")); // this can be changed to get user and password from a database		
+		return handler;
+	}
+
+	//interceptors.add -> xwsSecurityInterceptor -> from WsConfigurerAdapter
+	@Override
+	public void addInterceptors(List<EndpointInterceptor> interceptors) {
+		interceptors.add(securityInterceptor());
 	}
 	
 }

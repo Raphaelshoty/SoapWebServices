@@ -32,12 +32,19 @@ elementFormDefault="qualified">
 	
 	<xs:element name="deleteCourseDetailsResponse">			
         <xs:complexType>
-			<xs:sequence>
-				<!-- 1 success - 0 failure -->
-				<xs:element name="status" type="xs:int"/>
+			<xs:sequence>				
+				<xs:element name="status" type="tns:Status"/>
 			</xs:sequence>
 		</xs:complexType>
     </xs:element>
+    
+    <!-- enum to status of deletion -->
+    <xs:simpleType name="Status">
+    	<xs:restriction base="xs:string">
+    		<xs:enumeration value="SUCCESS" />
+    		<xs:enumeration value="FAILURE" />
+    	</xs:restriction>
+    </xs:simpleType>
     
 	<xs:element name="insertCourseDetailsRequest">			
         <xs:complexType>

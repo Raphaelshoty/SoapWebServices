@@ -13,6 +13,10 @@ public class CourseDetailsService {
 
 	// mock that could be substituted by a service that consumes a database 
 	
+	public enum Status{
+		SUCCESS, FAILURE;
+	}
+	
 	private static List<Course> courses = new ArrayList<>(); 
 	
 	static {
@@ -47,16 +51,16 @@ public class CourseDetailsService {
 	
 	//deleteById(int id)
 	
-	public int deleteById(int id) {		
+	public Status deleteById(int id) {		
 		Iterator<Course> cIterator = courses.iterator();
 		while(cIterator.hasNext()) {
 			Course course = cIterator.next();
 			if(course.getId() == id) {
 				cIterator.remove();
-				return 1;
+				return Status.SUCCESS;
 			}
 		}
-		return 0;
+		return Status.FAILURE;
 	}
 	
 	//update course & new course
