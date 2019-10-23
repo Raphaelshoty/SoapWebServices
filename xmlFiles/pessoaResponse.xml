@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<getPessoaResponse namxmlns="http://soapwebservices.com/pessoa">
-	<pessoaDetails>
-		<id>3</id>
-		<name>JOSIAS</name>
-		<dtNasc>25/10/1970</dtNasc>
-	</pessoaDetails>
-</getPessoaResponse>

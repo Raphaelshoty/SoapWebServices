@@ -2,11 +2,11 @@
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.7 
 // Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2019.10.17 às 09:10:55 PM BRT 
+// Gerado em: 2019.10.23 às 12:36:51 PM BRT 
 //
 
 
-package com.soapwebservices.pessoa;
+package com.soapwebservices.courses;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -23,9 +23,6 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -34,28 +31,9 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "id"
-})
-@XmlRootElement(name = "getPessoaRequest")
-public class GetPessoaRequest {
+@XmlType(name = "")
+@XmlRootElement(name = "getAllCourseDetailsRequest")
+public class GetAllCourseDetailsRequest {
 
-    protected int id;
-
-    /**
-     * Obtém o valor da propriedade id.
-     * 
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * Define o valor da propriedade id.
-     * 
-     */
-    public void setId(int value) {
-        this.id = value;
-    }
 
 }

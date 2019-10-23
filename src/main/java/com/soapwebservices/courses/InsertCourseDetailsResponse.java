@@ -10,7 +10,6 @@ package com.soapwebservices.courses;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -25,7 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="courseDetails" type="{http://soapwebservices.com/courses}courseDetails"/>
+ *         &lt;element name="status" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -36,36 +35,27 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "courseDetails"
+    "status"
 })
-@XmlRootElement(name = "getCourseDetailsResponse")
-public class GetCourseDetailsResponse {
+@XmlRootElement(name = "insertCourseDetailsResponse")
+public class InsertCourseDetailsResponse {
 
-    @XmlElement(required = true)
-    protected CourseDetails courseDetails;
+    protected boolean status;
 
     /**
-     * Obtém o valor da propriedade courseDetails.
+     * Obtém o valor da propriedade status.
      * 
-     * @return
-     *     possible object is
-     *     {@link CourseDetails }
-     *     
      */
-    public CourseDetails getCourseDetails() {
-        return courseDetails;
+    public boolean isStatus() {
+        return status;
     }
 
     /**
-     * Define o valor da propriedade courseDetails.
+     * Define o valor da propriedade status.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link CourseDetails }
-     *     
      */
-    public void setCourseDetails(CourseDetails value) {
-        this.courseDetails = value;
+    public void setStatus(boolean value) {
+        this.status = value;
     }
 
 }
