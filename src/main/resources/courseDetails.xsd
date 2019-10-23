@@ -49,7 +49,7 @@ elementFormDefault="qualified">
 	<xs:element name="insertCourseDetailsRequest">			
         <xs:complexType>
 			<xs:sequence>
-				<xs:element name="courseDetails" type="tns:courseDetails"/>
+				<xs:element name="courseDetails" type="tns:courseDetailsInsert"/>
 			</xs:sequence>
 		</xs:complexType>
     </xs:element>
@@ -61,6 +61,13 @@ elementFormDefault="qualified">
 			</xs:sequence>
 		</xs:complexType>
     </xs:element>
+    
+    <xs:complexType name="courseDetailsInsert">
+		<xs:sequence>			
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="description" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
     
 	<xs:element name="getAllCourseDetailsRequest">	
        <xs:complexType>			

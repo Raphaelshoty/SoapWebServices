@@ -2,7 +2,7 @@
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.7 
 // Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2019.10.23 às 12:36:51 PM BRT 
+// Gerado em: 2019.10.23 às 07:02:07 PM BRT 
 //
 
 
@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="courseDetails" type="{http://soapwebservices.com/courses}courseDetails"/>
+ *         &lt;element name="courseDetails" type="{http://soapwebservices.com/courses}courseDetailsInsert"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -42,17 +42,17 @@ import javax.xml.bind.annotation.XmlType;
 public class InsertCourseDetailsRequest {
 
     @XmlElement(required = true)
-    protected CourseDetails courseDetails;
+    protected CourseDetailsInsert courseDetails;
 
     /**
      * Obtém o valor da propriedade courseDetails.
      * 
      * @return
      *     possible object is
-     *     {@link CourseDetails }
+     *     {@link CourseDetailsInsert }
      *     
      */
-    public CourseDetails getCourseDetails() {
+    public CourseDetailsInsert getCourseDetails() {
         return courseDetails;
     }
 
@@ -61,10 +61,10 @@ public class InsertCourseDetailsRequest {
      * 
      * @param value
      *     allowed object is
-     *     {@link CourseDetails }
+     *     {@link CourseDetailsInsert }
      *     
      */
-    public void setCourseDetails(CourseDetails value) {
+    public void setCourseDetails(CourseDetailsInsert value) {
         this.courseDetails = value;
     }
 
